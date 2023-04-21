@@ -2,12 +2,12 @@ from django.contrib import admin
 
 from django.contrib.auth.admin import UserAdmin
 
-from .forms import CustomUserChangeForm, CustmoUserCreationFrom
+from .forms import CustomUserChangeForm, CustomUserCreationFrom
 from .models import CustomUser
 
 
 class CustomUserAdmin(UserAdmin):
-    add_form = CustmoUserCreationFrom
+    add_form = CustomUserCreationFrom
     form = CustomUserChangeForm
     model = CustomUser
     list_display = [
@@ -21,7 +21,7 @@ class CustomUserAdmin(UserAdmin):
                 None, {'fields': ('name',)}
                 ),
             )
-    add_fieldsets = UserAdmin.fieldsets + (
+    add_fieldsets = UserAdmin.add_fieldsets + (
             (
                 None, {'fields': ('name',)}
                 ),
